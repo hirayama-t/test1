@@ -30,12 +30,12 @@ jobs:
           npm run test --if-present
 
       # ビルドエラー回避用 追加12/12
-      - name: Check react-scripts existence
-        run: ls -l node_modules/.bin/
-      - name: Check react-scripts version
-        run: npm list react-scripts || true
-      - name: Fix permissions for react-scripts
-        run: chmod +x node_modules/.bin/react-scripts
+      #- name: Check react-scripts existence
+      #  run: ls -l node_modules/.bin/
+      #- name: Check react-scripts version
+      #  run: npm list react-scripts || true
+      #- name: Fix permissions for react-scripts
+      #  run: chmod +x node_modules/.bin/react-scripts
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -62,5 +62,6 @@ jobs:
           package: .
 
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C3D04053C130473481F8319D74380CFD }}
+
 
 
