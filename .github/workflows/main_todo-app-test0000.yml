@@ -29,6 +29,10 @@ jobs:
           npm run build --if-present
           npm run test --if-present
 
+      # ビルドエラー回避用 追加12/12
+      - name: Fix permissions for react-scripts
+        run: chmod +x node_modules/.bin/react-scripts
+
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
@@ -52,4 +56,5 @@ jobs:
           app-name: 'todo-app-test0000'
           slot-name: 'Production'
           package: .
+
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C3D04053C130473481F8319D74380CFD }}
